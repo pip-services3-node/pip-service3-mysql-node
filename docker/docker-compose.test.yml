@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+  test:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.test
+    image: ${IMAGE:-pipdevs/test}
+    depends_on:
+      - mysql
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=5432
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_DB=test
+
+  mysql:
+    image: mysql:latest
+    # container_name: mysql
+    environment:
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+      MYSQL_DB: test
+    # ports:
+    #   - "5432:5432"
+          
