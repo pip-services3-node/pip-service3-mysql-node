@@ -225,48 +225,23 @@ export class IdentifiableMySqlPersistence<T extends IIdentifiable<K>, K> extends
         let params = this.generateParameters(row);
         let setParams = this.generateSetParameters(row);
         let values = this.generateValues(row);
+        values.push(...values);
         values.push(item.id);
 
         let query = "INSERT INTO " + this.quoteIdentifier(this._tableName) + " (" + columns + ") VALUES (" + params + ")";
+        query += " ON DUPLICATE KEY UPDATE " + setParams;
         query += "; SELECT * FROM " + this.quoteIdentifier(this._tableName) + " WHERE id=?";
 
         this._client.query(query, values, (err, result) => {
             err = err || null;
 
-            // Suppress duplicated error entry
-            if (err && err.code == 'ER_DUP_ENTRY') {
-                err = null;
-                result == null;
-            }
+            if (!err)
+                this._logger.trace(correlationId, "Set in %s with id = %s", this.quoteIdentifier(this._tableName), item.id);
             
             let newItem = result && result.length == 2 && result[1].length == 1
                 ? this.convertToPublic(result[1][0]) : null;
-
-            if (newItem != null || err != null) {
-                if (!err)
-                    this._logger.trace(correlationId, "Set in %s with id = %s", this.quoteIdentifier(this._tableName), item.id);
-
-                if (callback) callback(err, newItem);
-                
-                return; 
-            }
-
-            values.push(item.id);
-            let query = "UPDATE " + this.quoteIdentifier(this._tableName) + " SET " + setParams + " WHERE id=?";
-            query += "; SELECT * FROM " + this.quoteIdentifier(this._tableName) + " WHERE id=?";
     
-            this._client.query(query, values, (err, result) => {
-                err = err || null;
-
-                if (!err)
-                    this._logger.trace(correlationId, "Set in %s with id = %s", this.quoteIdentifier(this._tableName), item.id);
-            
-                let newItem = result && result.length == 2 && result[1].length == 1
-                    ? this.convertToPublic(result[1][0]) : null;
-    
-                if (callback) callback(err, newItem);
-            });
-            
+            if (callback) callback(err, newItem);            
         });
     }
 
