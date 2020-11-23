@@ -1,6 +1,6 @@
-// /** 
-//  * @module build 
-//  * @preferred
-//  * 
-//  */
-// export { DefaultMySqlFactory } from './DefaultMySqlFactory';
+/** 
+ * @module build 
+ * @preferred
+ * 
+ */
+export { DefaultMySqlFactory } from './DefaultMySqlFactory';
