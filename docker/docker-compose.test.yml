@@ -12,7 +12,7 @@ services:
       - MYSQL_HOST=mysql
       - MYSQL_PORT=3306
       - MYSQL_USER=mysql
-      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_PASSWORD=mysql
       - MYSQL_DB=test
 
   mysql:
