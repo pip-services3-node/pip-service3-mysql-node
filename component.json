@@ -1,6 +1,6 @@
 {
-    "name": "pip-services3-mysql",
+    "name": "pip-services3-mysql-node",
     "registry": "pipdevs",
     "version": "3.0.2",
-    "build": "0"
+    "build": 0
 }
