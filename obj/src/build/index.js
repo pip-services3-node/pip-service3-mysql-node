@@ -6,5 +6,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  */
 var DefaultMySqlFactory_1 = require("./DefaultMySqlFactory");
-exports.DefaultMySqlFactory = DefaultMySqlFactory_1.DefaultMySqlFactory;
+Object.defineProperty(exports, "DefaultMySqlFactory", { enumerable: true, get: function () { return DefaultMySqlFactory_1.DefaultMySqlFactory; } });
 //# sourceMappingURL=index.js.map

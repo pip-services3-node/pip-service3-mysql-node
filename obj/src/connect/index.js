@@ -5,5 +5,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @preferred
  */
 var MySqlConnectionResolver_1 = require("./MySqlConnectionResolver");
-exports.MySqlConnectionResolver = MySqlConnectionResolver_1.MySqlConnectionResolver;
+Object.defineProperty(exports, "MySqlConnectionResolver", { enumerable: true, get: function () { return MySqlConnectionResolver_1.MySqlConnectionResolver; } });
 //# sourceMappingURL=index.js.map

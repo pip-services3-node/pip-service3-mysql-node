@@ -5,11 +5,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @preferred
  */
 var MySqlConnection_1 = require("./MySqlConnection");
-exports.MySqlConnection = MySqlConnection_1.MySqlConnection;
+Object.defineProperty(exports, "MySqlConnection", { enumerable: true, get: function () { return MySqlConnection_1.MySqlConnection; } });
 var MySqlPersistence_1 = require("./MySqlPersistence");
-exports.MySqlPersistence = MySqlPersistence_1.MySqlPersistence;
+Object.defineProperty(exports, "MySqlPersistence", { enumerable: true, get: function () { return MySqlPersistence_1.MySqlPersistence; } });
 var IdentifiableMySqlPersistence_1 = require("./IdentifiableMySqlPersistence");
-exports.IdentifiableMySqlPersistence = IdentifiableMySqlPersistence_1.IdentifiableMySqlPersistence;
+Object.defineProperty(exports, "IdentifiableMySqlPersistence", { enumerable: true, get: function () { return IdentifiableMySqlPersistence_1.IdentifiableMySqlPersistence; } });
 var IdentifiableJsonMySqlPersistence_1 = require("./IdentifiableJsonMySqlPersistence");
-exports.IdentifiableJsonMySqlPersistence = IdentifiableJsonMySqlPersistence_1.IdentifiableJsonMySqlPersistence;
+Object.defineProperty(exports, "IdentifiableJsonMySqlPersistence", { enumerable: true, get: function () { return IdentifiableJsonMySqlPersistence_1.IdentifiableJsonMySqlPersistence; } });
 //# sourceMappingURL=index.js.map
