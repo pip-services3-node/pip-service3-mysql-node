@@ -12,9 +12,13 @@ export class DummyJsonMySqlPersistence
 {
     public constructor() {
         super('dummies_json');
+    }
+
+    protected defineSchema(): void {
+        this.clearSchema();
         this.ensureTable();
-        this.autoCreateObject('ALTER TABLE `dummies_json` ADD `data_key` VARCHAR(50) AS (JSON_UNQUOTE(`data`->"$.key"))');
-        this.ensureIndex('dummies_json_key', { "data_key": 1 }, { unique: true });
+        this.ensureSchema('ALTER TABLE `' + this._tableName + '` ADD `data_key` VARCHAR(50) AS (JSON_UNQUOTE(`data`->"$.key"))');
+        this.ensureIndex(this._tableName + '_json_key', { "data_key": 1 }, { unique: true });
     }
 
     public getPageByFilter(correlationId: string, filter: FilterParams, paging: PagingParams, 

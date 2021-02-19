@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.IdentifiableJsonMySqlPersistence = exports.IdentifiableMySqlPersistence = exports.MySqlPersistence = exports.MySqlConnection = void 0;
 /**
  * @module persistence
  * @preferred
